@@ -8,8 +8,8 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #ffafbd, #ffc3a0);
-      color: #fff;
+      background: linear-gradient(to right, #000000, #1a0000); /* black gradient */
+      color: #ff4d4d; /* red text */
       text-align: center;
       overflow: hidden;
       position: relative;
@@ -21,6 +21,7 @@
       margin-bottom: 0.2em;
       position: relative;
       z-index: 10;
+      color: #ff1a1a; /* bright red */
     }
 
     p {
@@ -28,10 +29,11 @@
       margin-bottom: 1em;
       position: relative;
       z-index: 10;
+      color: #ff6666; /* lighter red */
     }
 
     .heart {
-      color: red;
+      color: #ff0000; /* pure red */
       font-size: 5em;
       animation: beat 1s infinite;
     }
@@ -42,20 +44,21 @@
     }
 
     button {
-      background-color: #fff;
-      color: #ff6b6b;
+      background-color: #ff1a1a; /* red button */
+      color: #fff; /* white text */
       border: none;
       padding: 15px 30px;
       font-size: 1.2em;
       border-radius: 30px;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.2s;
       position: relative;
       z-index: 10;
     }
 
     button:hover {
       transform: scale(1.1);
+      background-color: #ff4d4d; /* lighter red on hover */
     }
 
     footer {
@@ -64,6 +67,7 @@
       width: 100%;
       font-size: 0.9em;
       z-index: 10;
+      color: #ff6666;
     }
 
     /* Falling hearts */
@@ -72,6 +76,8 @@
       top: -50px;
       font-size: 1.5em;
       animation: fall linear infinite;
+      color: #ff1a1a; /* red hearts */
+      text-shadow: 0 0 5px #ff4d4d;
     }
 
     @keyframes fall {
@@ -86,6 +92,8 @@
       height: 10px;
       border-radius: 50%;
       animation: confettiFall 1s linear forwards;
+      background-color: #ff1a1a; /* red confetti */
+      box-shadow: 0 0 5px #ff6666;
     }
 
     @keyframes confettiFall {
@@ -100,13 +108,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: white;
-      color: #ff6b6b;
+      background-color: #1a0000; /* dark red background */
+      color: #ff4d4d; /* red text */
       padding: 30px;
       border-radius: 20px;
       text-align: center;
       font-size: 1.5em;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(255,0,0,0.5);
       z-index: 100;
     }
 
@@ -116,7 +124,7 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      background-color: #ff6b6b;
+      background-color: #ff1a1a; /* red button */
       color: white;
       margin-top: 20px;
     }
@@ -126,12 +134,11 @@
 
   <h1>Hi Baby! <span class="heart">❤️</span></h1>
   <p>Will you be my Valentine?</p>
-  <button onclick="showMessage()">YES</button>
-<button onclick="showMessage()">NO</button>
+  <button onclick="showMessage()">💌 Click here and make your choice! 🌸</button>
 
   <!-- Custom popup -->
   <div id="custom-popup">
-    You have no choice, so IT'S A YES 🤗
+    Nope, no choice… it’s a big YES! 🤗💖
     <br>
     <button onclick="closePopup()">OK</button>
   </div>
@@ -163,7 +170,7 @@
         const confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 70%)`;
+        confetti.style.backgroundColor = `hsl(0, 100%, ${50 + Math.random() * 30}%)`; // red shades
         document.body.appendChild(confetti);
         setTimeout(() => confetti.remove(), 1000);
       }
@@ -185,4 +192,3 @@
 
 </body>
 </html>
-
